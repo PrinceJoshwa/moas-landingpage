@@ -877,7 +877,7 @@
         "name": "University of Massachusetts Amherst",
         "location": "Amherst, MA",
         "ranking": 301,
-        "image": "https://placehold.co/400x300",
+        "image": "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1736164687/university2_uazko9.jpg",
         "courses": [
           {
             "id": "us4c1",
