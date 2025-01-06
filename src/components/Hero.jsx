@@ -23,7 +23,8 @@
 //   const [isHovered, setIsHovered] = useState(false);
 
 //   return (
-//     <div className="min-h-screen bg-white">
+//     // Added id="hero" to ensure navigation to this section works
+//     <div id="hero" className="min-h-screen bg-white">
 //       <main className="container mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 //         <div className="space-y-8">
 //           <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
@@ -152,6 +153,7 @@
 
 import { motion, useSpring } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import bgimg1 from "../assets/bgimg1.jpeg";
 
 const CountUp = ({ end, duration = 2 }) => {
@@ -173,9 +175,13 @@ const CountUp = ({ end, duration = 2 }) => {
 
 export default function Hero() {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate(); // Initialize navigate function
+
+  const handleButtonClick = () => {
+    navigate("/course-finder"); // Navigate to the course-finder page
+  };
 
   return (
-    // Added id="hero" to ensure navigation to this section works
     <div id="hero" className="min-h-screen bg-white">
       <main className="container mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
@@ -211,10 +217,12 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Updated button to use navigation */}
           <button
             className="bg-orange-500 text-white px-8 py-3 rounded-full flex items-center gap-2 hover:bg-orange-600 transition-colors"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={handleButtonClick} // Handle navigation on click
           >
             Find my dream university
             <motion.svg
